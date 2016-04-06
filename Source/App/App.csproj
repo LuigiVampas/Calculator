@@ -32,6 +32,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="LightInject">
+      <HintPath>..\packages\LightInject.4.0.9\lib\net45\LightInject.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -55,6 +58,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -69,10 +73,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Calculator\View.csproj">
-      <Project>{9ae07a98-333f-4bda-82e6-3bbe64cd0358}</Project>
-      <Name>View</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Model\Model.csproj">
       <Project>{54513a14-460a-4ea0-a9c4-d79d90b38bff}</Project>
       <Name>Model</Name>
