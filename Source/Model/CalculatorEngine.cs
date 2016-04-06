@@ -46,6 +46,9 @@ namespace Model
 
         private void CalculateExpression()
         {
+            if (_leftOp == "" || _rightOp == "" || _operation == "")
+                return;
+
             var num1 = (long)int.Parse(_leftOp);
             var num2 = (long)int.Parse(_rightOp);
 
