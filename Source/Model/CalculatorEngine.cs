@@ -8,71 +8,66 @@ namespace Model
         private string _rightOp = "";
         private string _leftOp = "";
         private string _operation = "";
+        private int _numFromString;
 
-        private int _num;
-
-        public string Engine(string input)
+        public string CallEngineCounter(string input)
         {
-            var result ="";
-            var flag = int.TryParse(input, out _num);
+            var isInt = int.TryParse(input, out _numFromString);
             
-            if (flag)
+            if (isInt)
                 if (_operation == "") _leftOp += input;
-                else _rightOp += input;
-                
+                else _rightOp += input;   
             else
             {
-                if (input == "=")
+                switch (input)
                 {
-                    Calculate();
-                    result += _rightOp;
-                    _operation = "";
-                }
-                else if (input == "CE")
-                {
-                    _leftOp = "";
-                    _rightOp = "";
-                    _operation = "";
-                    result = "";
-                }
-                else
-                {
-                    if (_rightOp != "")
-                    {
-                        Calculate();
-                        _leftOp = _rightOp;
+                    case "=":
+                        CalculateExpression();
+                        _operation = "";
                         _rightOp = "";
-                    }
-                    _operation = input;
+                        break;
+                    case "CE":
+                        _leftOp = "";
+                        _rightOp = "";
+                        _operation = "";
+                        break;
+                    default:
+                        if (_operation != "" && _rightOp != "")
+                        {
+                            CalculateExpression();
+                            _rightOp = "";
+                        }
+                        _operation = input;
+                        break;
                 }
             }
-            return result;
+            return string.Format("{0}{1}{2}", _leftOp, _operation, _rightOp);
         }
 
-        private void Calculate()
+        private void CalculateExpression()
         {
-            var num1 = int.Parse(_leftOp);
-            var num2 = int.Parse(_rightOp);
+            var num1 = (long)int.Parse(_leftOp);
+            var num2 = (long)int.Parse(_rightOp);
 
             switch (_operation)
             {
                 case "+":
-                    _rightOp = ((num1 + num2)).ToString();
+                    _leftOp = ((num1 + num2)).ToString();
                     break;
                 case "-":
-                    _rightOp = ((num1 - num2)).ToString();
+                    _leftOp = ((num1 - num2)).ToString();
                     break;
                 case "/":
-                    _rightOp = ((num1 / num2)).ToString();
+                    _leftOp = ((num1 / num2)).ToString();
                     break;
                 case "*":
-                    _rightOp = ((num1 * num2)).ToString();
+                    _leftOp = ((num1 * num2)).ToString();
                     break;
                 case "^":
-                    _rightOp = (Math.Pow(num1, num2)).ToString(CultureInfo.InvariantCulture);
+                    _leftOp = (Math.Pow(num1, num2)).ToString(CultureInfo.InvariantCulture);
                     break;
                 case "%":
-                    _rightOp = ((num1 % num2)).ToString();
+                    _leftOp = ((num1 % num2)).ToString();
                     break;
             }
         }

@@ -33,14 +33,7 @@ namespace Presentation
 
         private void OnButtonPressed(object sender, string e)
         {
-            if (e == "CE")
-                ViewModel.CalculatingString = "";
-            else
-                ViewModel.CalculatingString += e;
-
-            var result = _engine.Engine(e);
-            if (result != "")
-                ViewModel.CalculatingString = result;
+            ViewModel.CalculatingString = _engine.CallEngineCounter(e);
         }
 
         public void Run()
