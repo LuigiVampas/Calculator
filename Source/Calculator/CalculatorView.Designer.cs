@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this._calculatingString = new System.Windows.Forms.TextBox();
             this._oneButton = new System.Windows.Forms.Button();
             this._fiveButton = new System.Windows.Forms.Button();
@@ -46,12 +47,15 @@
             this._divideButton = new System.Windows.Forms.Button();
             this._minusButton = new System.Windows.Forms.Button();
             this._plusButton = new System.Windows.Forms.Button();
+            this._calculatorViewModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this._calculatorViewModelBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // _calculatingString
             // 
             this._calculatingString.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this._calculatingString.DataBindings.Add(new System.Windows.Forms.Binding("Text", this._calculatorViewModelBindingSource, "CalculatingString", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this._calculatingString.Location = new System.Drawing.Point(12, 12);
             this._calculatingString.Name = "_calculatingString";
             this._calculatingString.Size = new System.Drawing.Size(347, 20);
@@ -244,6 +248,10 @@
             this._plusButton.UseVisualStyleBackColor = true;
             this._plusButton.Click += new System.EventHandler(this.InvokeSignButtonPressed);
             // 
+            // _calculatorViewModelBindingSource
+            // 
+            this._calculatorViewModelBindingSource.DataSource = typeof(Presentation.CalculatorViewModel);
+            // 
             // CalculatorView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -270,6 +278,7 @@
             this.Name = "CalculatorView";
             this.ShowIcon = false;
             this.Text = "Калькулятор";
+            ((System.ComponentModel.ISupportInitialize)(this._calculatorViewModelBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -295,6 +304,7 @@
         private System.Windows.Forms.Button _divideButton;
         private System.Windows.Forms.Button _minusButton;
         private System.Windows.Forms.Button _plusButton;
+        private System.Windows.Forms.BindingSource _calculatorViewModelBindingSource;
     }
 }
 

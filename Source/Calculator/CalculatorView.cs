@@ -10,6 +10,12 @@ namespace Calculator
         {
             InitializeComponent();
         }
+
+        public object DataContext 
+        {
+            get { return _calculatorViewModelBindingSource.DataSource; }
+            set { _calculatorViewModelBindingSource.DataSource = value; }
+        }
         
         private void InvokeNumberButtonPressed(object sender, EventArgs e)
         {
