@@ -1,8 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using Calculator;
+using LightInject;
+using Presentation;
 
 namespace App
 {
@@ -16,6 +16,14 @@ namespace App
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
+            var container = new ServiceContainer();
+
+            container.Register<ICalculatorPresenter, CalculatorPresenter>(new PerContainerLifetime());
+            container.Register<ICalculatorView, CalculatorView>(new PerContainerLifetime());
+
+            var presenter = container.GetInstance<ICalculatorPresenter>();
+            presenter.Run();
         }
     }
 }

@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this._calculatingString = new System.Windows.Forms.TextBox();
-            this._calculatorViewModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this._oneButton = new System.Windows.Forms.Button();
             this._fiveButton = new System.Windows.Forms.Button();
             this._threeButton = new System.Windows.Forms.Button();
@@ -49,6 +48,7 @@
             this._minusButton = new System.Windows.Forms.Button();
             this._plusButton = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this._calculatorViewModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this._calculatorViewModelBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -59,12 +59,9 @@
             this._calculatingString.DataBindings.Add(new System.Windows.Forms.Binding("Text", this._calculatorViewModelBindingSource, "CalculatingString", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this._calculatingString.Location = new System.Drawing.Point(12, 12);
             this._calculatingString.Name = "_calculatingString";
+            this._calculatingString.ReadOnly = true;
             this._calculatingString.Size = new System.Drawing.Size(347, 20);
             this._calculatingString.TabIndex = 0;
-            // 
-            // _calculatorViewModelBindingSource
-            // 
-            this._calculatorViewModelBindingSource.DataSource = typeof(Presentation.CalculatorViewModel);
             // 
             // _oneButton
             // 
@@ -260,9 +257,13 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(96, 39);
             this.button1.TabIndex = 18;
-            this.button1.Text = "CLEAR";
+            this.button1.Text = "CE";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.InvokeButtonPressed);
+            // 
+            // _calculatorViewModelBindingSource
+            // 
+            this._calculatorViewModelBindingSource.DataSource = typeof(Presentation.CalculatorViewModel);
             // 
             // CalculatorView
             // 

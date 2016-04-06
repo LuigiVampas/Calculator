@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Collections.Specialized;
-using System.Runtime.Remoting.Messaging;
+using System.Globalization;
 
 namespace Model
 {
@@ -15,11 +13,10 @@ namespace Model
 
         public string Engine(string input)
         {
-            string result ="";
-            result += input;
-            bool flag = Int32.TryParse(input, out _num);
+            var result ="";
+            var flag = int.TryParse(input, out _num);
             
-            if (flag == true)
+            if (flag)
                 if (_operation == "") _leftOp += input;
                 else _rightOp += input;
                 
@@ -54,11 +51,10 @@ namespace Model
             return result;
         }
 
-
-        public void Calculate()
+        private void Calculate()
         {
-            int num1 = Int32.Parse(_leftOp);
-            int num2 = Int32.Parse(_rightOp);
+            var num1 = int.Parse(_leftOp);
+            var num2 = int.Parse(_rightOp);
 
             switch (_operation)
             {
@@ -75,7 +71,7 @@ namespace Model
                     _rightOp = ((num1 * num2)).ToString();
                     break;
                 case "^":
-                    _rightOp = (Math.Pow(num1, num2)).ToString();
+                    _rightOp = (Math.Pow(num1, num2)).ToString(CultureInfo.InvariantCulture);
                     break;
                 case "%":
                     _rightOp = ((num1 % num2)).ToString();

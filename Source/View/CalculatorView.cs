@@ -11,6 +11,11 @@ namespace Calculator
             InitializeComponent();
         }
 
+        public void Run()
+        {
+            Application.Run(this);
+        }
+
         public object DataContext 
         {
             get { return _calculatorViewModelBindingSource.DataSource; }

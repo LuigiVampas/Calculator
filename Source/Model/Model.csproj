@@ -42,12 +42,6 @@
     <Compile Include="CalculatorEngine.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Presentation\Presentation.csproj">
-      <Project>{ff8f0c82-38ce-4173-b787-cd9bb7d58450}</Project>
-      <Name>Presentation</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

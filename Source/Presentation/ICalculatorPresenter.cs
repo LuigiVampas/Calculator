@@ -2,5 +2,6 @@
 {
     public interface ICalculatorPresenter
     {
+        void Run();
     }
 }
