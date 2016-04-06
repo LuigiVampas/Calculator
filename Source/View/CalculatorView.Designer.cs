@@ -291,6 +291,7 @@
             this.Name = "CalculatorView";
             this.ShowIcon = false;
             this.Text = "Калькулятор";
+            this.Load += new System.EventHandler(this.OnLoaded);
             ((System.ComponentModel.ISupportInitialize)(this._calculatorViewModelBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
