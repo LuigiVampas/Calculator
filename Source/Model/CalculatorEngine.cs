@@ -28,7 +28,6 @@ namespace Model
                     result += _rightOp;
                     _operation = "";
                 }
-                
                 else if (input == "CE")
                 {
                     _leftOp = "";
@@ -36,7 +35,6 @@ namespace Model
                     _operation = "";
                     result = "";
                 }
-                
                 else
                 {
                     if (_rightOp != "")
