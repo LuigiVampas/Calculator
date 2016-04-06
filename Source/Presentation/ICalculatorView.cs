@@ -6,8 +6,8 @@ namespace Presentation
     {
         object DataContext { get; set; }
 
-        event EventHandler<int> NumberPressed;
+        event EventHandler<string> ButtonPressed;
 
-        event EventHandler<string> SignPressed;
+        event EventHandler Loaded;
     }
 }

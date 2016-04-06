@@ -16,27 +16,24 @@ namespace Calculator
             get { return _calculatorViewModelBindingSource.DataSource; }
             set { _calculatorViewModelBindingSource.DataSource = value; }
         }
-        
-        private void InvokeNumberButtonPressed(object sender, EventArgs e)
-        {
-            var button = (Button) sender;
-            var number = Convert.ToInt32(button.Text);
 
-            if (NumberPressed != null)
-                NumberPressed(this, number);
-        }
-
-        private void InvokeSignButtonPressed(object sender, EventArgs e)
+        private void InvokeButtonPressed(object sender, EventArgs e)
         {
             var button = (Button)sender;
             var sign = button.Text;
 
-            if (SignPressed != null)
-                SignPressed(this, sign);
+            if (ButtonPressed != null)
+                ButtonPressed(this, sign);
         }
 
-        public event EventHandler<int> NumberPressed;
+        private void OnLoaded(object sender, EventArgs e)
+        {
+            if (Loaded != null)
+                Loaded(this, EventArgs.Empty);
+        }
 
-        public event EventHandler<string> SignPressed;
+        public event EventHandler<string> ButtonPressed;
+
+        public event EventHandler Loaded;
     }
 }
