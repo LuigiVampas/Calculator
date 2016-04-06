@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this._calculatingString = new System.Windows.Forms.TextBox();
+            this._calculatorViewModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this._oneButton = new System.Windows.Forms.Button();
             this._fiveButton = new System.Windows.Forms.Button();
             this._threeButton = new System.Windows.Forms.Button();
@@ -47,7 +48,7 @@
             this._divideButton = new System.Windows.Forms.Button();
             this._minusButton = new System.Windows.Forms.Button();
             this._plusButton = new System.Windows.Forms.Button();
-            this._calculatorViewModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this._calculatorViewModelBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -61,6 +62,10 @@
             this._calculatingString.Size = new System.Drawing.Size(347, 20);
             this._calculatingString.TabIndex = 0;
             // 
+            // _calculatorViewModelBindingSource
+            // 
+            this._calculatorViewModelBindingSource.DataSource = typeof(Presentation.CalculatorViewModel);
+            // 
             // _oneButton
             // 
             this._oneButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -70,7 +75,7 @@
             this._oneButton.TabIndex = 1;
             this._oneButton.Text = "1";
             this._oneButton.UseVisualStyleBackColor = true;
-            this._oneButton.Click += new System.EventHandler(this.InvokeNumberButtonPressed);
+            this._oneButton.Click += new System.EventHandler(this.InvokeButtonPressed);
             // 
             // _fiveButton
             // 
@@ -81,7 +86,7 @@
             this._fiveButton.TabIndex = 5;
             this._fiveButton.Text = "5";
             this._fiveButton.UseVisualStyleBackColor = true;
-            this._fiveButton.Click += new System.EventHandler(this.InvokeNumberButtonPressed);
+            this._fiveButton.Click += new System.EventHandler(this.InvokeButtonPressed);
             // 
             // _threeButton
             // 
@@ -92,7 +97,7 @@
             this._threeButton.TabIndex = 3;
             this._threeButton.Text = "3";
             this._threeButton.UseVisualStyleBackColor = true;
-            this._threeButton.Click += new System.EventHandler(this.InvokeNumberButtonPressed);
+            this._threeButton.Click += new System.EventHandler(this.InvokeButtonPressed);
             // 
             // _eightButton
             // 
@@ -103,7 +108,7 @@
             this._eightButton.TabIndex = 8;
             this._eightButton.Text = "8";
             this._eightButton.UseVisualStyleBackColor = true;
-            this._eightButton.Click += new System.EventHandler(this.InvokeNumberButtonPressed);
+            this._eightButton.Click += new System.EventHandler(this.InvokeButtonPressed);
             // 
             // _sixButton
             // 
@@ -114,7 +119,7 @@
             this._sixButton.TabIndex = 6;
             this._sixButton.Text = "6";
             this._sixButton.UseVisualStyleBackColor = true;
-            this._sixButton.Click += new System.EventHandler(this.InvokeNumberButtonPressed);
+            this._sixButton.Click += new System.EventHandler(this.InvokeButtonPressed);
             // 
             // _nineButton
             // 
@@ -125,7 +130,7 @@
             this._nineButton.TabIndex = 9;
             this._nineButton.Text = "9";
             this._nineButton.UseVisualStyleBackColor = true;
-            this._nineButton.Click += new System.EventHandler(this.InvokeNumberButtonPressed);
+            this._nineButton.Click += new System.EventHandler(this.InvokeButtonPressed);
             // 
             // _twoButton
             // 
@@ -136,7 +141,7 @@
             this._twoButton.TabIndex = 2;
             this._twoButton.Text = "2";
             this._twoButton.UseVisualStyleBackColor = true;
-            this._twoButton.Click += new System.EventHandler(this.InvokeNumberButtonPressed);
+            this._twoButton.Click += new System.EventHandler(this.InvokeButtonPressed);
             // 
             // _sevenButton
             // 
@@ -147,7 +152,7 @@
             this._sevenButton.TabIndex = 7;
             this._sevenButton.Text = "7";
             this._sevenButton.UseVisualStyleBackColor = true;
-            this._sevenButton.Click += new System.EventHandler(this.InvokeNumberButtonPressed);
+            this._sevenButton.Click += new System.EventHandler(this.InvokeButtonPressed);
             // 
             // _fourButton
             // 
@@ -158,18 +163,18 @@
             this._fourButton.TabIndex = 4;
             this._fourButton.Text = "4";
             this._fourButton.UseVisualStyleBackColor = true;
-            this._fourButton.Click += new System.EventHandler(this.InvokeNumberButtonPressed);
+            this._fourButton.Click += new System.EventHandler(this.InvokeButtonPressed);
             // 
             // _zeroButton
             // 
             this._zeroButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this._zeroButton.Location = new System.Drawing.Point(68, 178);
+            this._zeroButton.Location = new System.Drawing.Point(17, 178);
             this._zeroButton.Name = "_zeroButton";
             this._zeroButton.Size = new System.Drawing.Size(45, 39);
             this._zeroButton.TabIndex = 10;
             this._zeroButton.Text = "0";
             this._zeroButton.UseVisualStyleBackColor = true;
-            this._zeroButton.Click += new System.EventHandler(this.InvokeNumberButtonPressed);
+            this._zeroButton.Click += new System.EventHandler(this.InvokeButtonPressed);
             // 
             // _resultButton
             // 
@@ -180,7 +185,7 @@
             this._resultButton.TabIndex = 11;
             this._resultButton.Text = "=";
             this._resultButton.UseVisualStyleBackColor = true;
-            this._resultButton.Click += new System.EventHandler(this.InvokeSignButtonPressed);
+            this._resultButton.Click += new System.EventHandler(this.InvokeButtonPressed);
             // 
             // _modButton
             // 
@@ -191,7 +196,7 @@
             this._modButton.TabIndex = 12;
             this._modButton.Text = "%";
             this._modButton.UseVisualStyleBackColor = true;
-            this._modButton.Click += new System.EventHandler(this.InvokeSignButtonPressed);
+            this._modButton.Click += new System.EventHandler(this.InvokeButtonPressed);
             // 
             // _powButton
             // 
@@ -202,7 +207,7 @@
             this._powButton.TabIndex = 13;
             this._powButton.Text = "^";
             this._powButton.UseVisualStyleBackColor = true;
-            this._powButton.Click += new System.EventHandler(this.InvokeSignButtonPressed);
+            this._powButton.Click += new System.EventHandler(this.InvokeButtonPressed);
             // 
             // _multiplyButton
             // 
@@ -213,7 +218,7 @@
             this._multiplyButton.TabIndex = 14;
             this._multiplyButton.Text = "*";
             this._multiplyButton.UseVisualStyleBackColor = true;
-            this._multiplyButton.Click += new System.EventHandler(this.InvokeSignButtonPressed);
+            this._multiplyButton.Click += new System.EventHandler(this.InvokeButtonPressed);
             // 
             // _divideButton
             // 
@@ -224,7 +229,7 @@
             this._divideButton.TabIndex = 15;
             this._divideButton.Text = "/";
             this._divideButton.UseVisualStyleBackColor = true;
-            this._divideButton.Click += new System.EventHandler(this.InvokeSignButtonPressed);
+            this._divideButton.Click += new System.EventHandler(this.InvokeButtonPressed);
             // 
             // _minusButton
             // 
@@ -235,7 +240,7 @@
             this._minusButton.TabIndex = 16;
             this._minusButton.Text = "-";
             this._minusButton.UseVisualStyleBackColor = true;
-            this._minusButton.Click += new System.EventHandler(this.InvokeSignButtonPressed);
+            this._minusButton.Click += new System.EventHandler(this.InvokeButtonPressed);
             // 
             // _plusButton
             // 
@@ -246,17 +251,25 @@
             this._plusButton.TabIndex = 17;
             this._plusButton.Text = "+";
             this._plusButton.UseVisualStyleBackColor = true;
-            this._plusButton.Click += new System.EventHandler(this.InvokeSignButtonPressed);
+            this._plusButton.Click += new System.EventHandler(this.InvokeButtonPressed);
             // 
-            // _calculatorViewModelBindingSource
+            // button1
             // 
-            this._calculatorViewModelBindingSource.DataSource = typeof(Presentation.CalculatorViewModel);
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button1.Location = new System.Drawing.Point(68, 178);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(96, 39);
+            this.button1.TabIndex = 18;
+            this.button1.Text = "CLEAR";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.InvokeButtonPressed);
             // 
             // CalculatorView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(371, 253);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this._plusButton);
             this.Controls.Add(this._minusButton);
             this.Controls.Add(this._divideButton);
@@ -305,6 +318,7 @@
         private System.Windows.Forms.Button _minusButton;
         private System.Windows.Forms.Button _plusButton;
         private System.Windows.Forms.BindingSource _calculatorViewModelBindingSource;
+        private System.Windows.Forms.Button button1;
     }
 }
 
